@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using codArd.Models;
+using Microsoft.EntityFrameworkCore;
 
 public class ApplicationDbContext : DbContext
 {
@@ -7,5 +8,5 @@ public class ApplicationDbContext : DbContext
         : base(options)
     {
     }
-
+    public DbSet<Topic> Topics { get; set; }
 }
