@@ -9,4 +9,7 @@ public class ApplicationDbContext : DbContext
     {
     }
     public DbSet<Topic> Topics { get; set; }
+
+    public DbSet<codArd.Models.Task> Tasks { get; set; }
+
 }
