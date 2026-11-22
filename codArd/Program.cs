@@ -1,6 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 
+
 var builder = WebApplication.CreateBuilder(args);
+
+var port = 2000;
+
+builder.WebHost.UseUrls($"http://localhost:{port}");
 
 // Підключення бази даних SQL Server
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
