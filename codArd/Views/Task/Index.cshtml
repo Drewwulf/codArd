@@ -1,0 +1,33 @@
+﻿@model List<codArd.Models.Task>
+@{
+}
+
+<section>
+
+<form asp-controller="Task" asp-action="AddTask">
+    <input name="TaskName" />
+    <input name="TaskDescription"/>
+    <input type="submit" />
+
+</form>
+    <select>
+    <option value="value1"></option>
+    <option value="value2"></option>
+        <option value="value3"></option>
+        <option value="value4"></option>
+    </select>
+</section>
+<section>
+    @foreach(var item in Model)
+    {
+        <div>
+        <h2>@item.TaskName</h2>
+        <p>@item.Description</p>
+        <a class="btn btn-danger" asp-controller="Task" asp-action="DeleteTask" asp-route-id="@item.Id">Delete?</a>
+        <a class="btn btn-secondary" asp-controller="Task" asp-action="Edit" asp-route-id="@item.Id">Edit</a>     
+    </div>
+
+    }
+
+
+</section>
