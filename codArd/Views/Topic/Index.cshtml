@@ -1,0 +1,25 @@
+﻿@model List<Topic>
+
+@{
+}
+<section>
+<form asp-controller="Topic" asp-action="AddTopic"><input name="TopicName" required/>
+        <input name="TopicDescription" required />
+    <input type="submit">
+</form>
+</section>
+<section>
+    @foreach(var item in Model)
+    {
+        <div>
+            <h2>
+                @item.Name
+            </h2>
+            <p>
+                @item.Description
+            </p>
+            <a class="btn-danger btn" asp-controller="Topic" asp-action="DeleteTopic" asp-route-id="@item.Id">Delet</a>
+            <a class="btn-secondary" asp-controller="Topic" asp-action="Change" asp-route-id="@item.Id">Change</a>
+        </div>
+    }
+</section>

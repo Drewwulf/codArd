@@ -1,0 +1,10 @@
+﻿@model Topic
+
+    <section>
+        <form asp-controller="Topic" asp-action="ChangeTopic" method="post">
+            <input asp-for="Name" value="@Model.Name" name="TopicName" required />
+            <input asp-for="Description" value="@Model.Description" name="TopicDescription" required />
+            <input type="hidden" asp-for="Id"/>
+            <input type="submit">
+        </form>
+    </section>
