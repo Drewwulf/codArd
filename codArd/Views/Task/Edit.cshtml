@@ -1,0 +1,19 @@
+﻿@model codArd.Models.Task
+@{
+}
+<section>
+
+<form asp-controller="Task" asp-action="Edit">
+    <input asp-for="@Model.TaskName" name="TaskName" />
+    <input asp-for="@Model.Description" name="TaskDescription"/>
+    <input type="hidden" asp-for="@Model.Id" />
+    <input type="submit" />
+
+</form>
+    <select>
+    <option value="value1"></option>
+    <option value="value2"></option>
+        <option value="value3"></option>
+        <option value="value4"></option>
+    </select>
+</section>

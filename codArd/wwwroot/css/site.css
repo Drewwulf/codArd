@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=STIX+Two+Math&display=swap');
 html {
   font-size: 14px;
 }
@@ -28,4 +29,32 @@ body {
 
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
+}
+.nav-menu{
+    background-color:rgb(0,169,157);
+    padding:15px 40px;box-shadow:0px 2px 5px rgb(24,63,84);
+
+}
+.navbar-expand-sm .navbar-nav {
+    flex-direction: row;
+    justify-content: right;
+}
+.heading{
+    color:white
+}
+.heading span{
+    color:rgb(24,63,84)
+}
+.nav-link {
+    color: rgb(24,63,84) !important;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: "EB Garamond", serif;
+}
+    .nav-link:hover {
+        color: white!important
+    }
+.footer-menu {
+    background-color: rgb(0,169,157);
+    border-top: 1px solid rgb(0,200,200)
 }
