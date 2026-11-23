@@ -9,6 +9,8 @@ namespace codArd.Models
         public string Description { get; set;  }
 
         public bool IsDeleted { get; set; } = false;
+        public int topicId { get; set; }
+        public Topic topic { get; set; } 
     }
-    
+
 }

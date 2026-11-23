@@ -1,14 +1,31 @@
-﻿@model codArd.Models.Task
+﻿@model codArd.Models.ViewModels.TaskViewModel
 @{
+
 }
 <section>
 
 <form asp-controller="Task" asp-action="Edit">
-    <input asp-for="@Model.TaskName" name="TaskName" />
-    <input asp-for="@Model.Description" name="TaskDescription"/>
-    <input type="hidden" asp-for="@Model.Id" />
+        <input asp-for="@Model.TName" value="@Model.TName" />
+    <input asp-for="@Model.TDescription" value="@Model.TDescription"/>
+    <input type="hidden" asp-for="@Model.TId" value="@Model.TId"/>
     <input type="submit" />
+        <select asp-for="@Model.topicID" >
+            @foreach (var item in Model.topicViewModel)
+            {
+                        if(item.Id == Model.TId)
+                        {
+                    <option selected value="@item.Id">@item.Name</option>
 
+                            
+
+                        }
+                        else
+                        {
+                    <option value="@item.Id">@item.Name</option>
+
+                        }
+            }
+        </select>
 </form>
     <select>
     <option value="value1"></option>
