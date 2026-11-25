@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using codArd.Models;
+using codArd.Models.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 
 namespace codArd.Controllers
 {
@@ -12,11 +14,19 @@ namespace codArd.Controllers
         public IActionResult Index()
         {
             var tasks = _context.Tasks.Where(t => t.IsDeleted == false).ToList();
-            return View(tasks);
+            var topics = _context.Topics.Where(t => t.IsDeleted == false).ToList();
+            var model = new TaskViewModel()
+            {
+                tasksViewModel = tasks,
+                topicViewModel = topics
+
+            };
+            
+            return View(model);
         }
-        public IActionResult AddTask(string TaskName, string TaskDescription)
+        public IActionResult AddTask(string TaskName, string TaskDescription, int TopicId)
         {
-            var task1 = new codArd.Models.Task() { TaskName = TaskName, Description = TaskDescription };
+            var task1 = new codArd.Models.Task() { TaskName = TaskName, Description = TaskDescription,topicId = TopicId};
             _context.Tasks.Add(task1);
             _context.SaveChanges();
             return RedirectToAction("Index");
@@ -31,15 +41,29 @@ namespace codArd.Controllers
         }
         public IActionResult Edit(int Id)
         {
+            var topics = _context.Topics.Where(t => t.IsDeleted == false).ToList();
             var task = _context.Tasks.Find(Id);
-            return View(task);
+            var model = new TaskViewModel()
+            {
+                
+                topicViewModel = topics,
+                TName= task.TaskName,
+                TDescription = task.Description
+               ,TId = task.Id,
+                topicID = task.topicId
+
+            };
+
+            
+            return View(model);
         }
         [HttpPost]
-        public IActionResult Edit(string TaskName, string TaskDescription,int Id)
+        public IActionResult Edit(TaskViewModel tasks)
         {
-            var task = _context.Tasks.Find(Id);
-            task.TaskName = TaskName;
-            task.Description = TaskDescription;
+            var task = _context.Tasks.Find(tasks.TId);
+            task.TaskName = tasks.TName;
+            task.Description = tasks.TDescription;
+            task.topicId = tasks.topicID;
             _context.SaveChanges();
             return RedirectToAction("Index");
         }

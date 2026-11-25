@@ -58,3 +58,30 @@ body {
     background-color: rgb(0,169,157);
     border-top: 1px solid rgb(0,200,200)
 }
+.formInput {
+    background-color: rgba(0, 0, 0, 0.125); width:35%;
+    margin: 0 auto;
+    border-radius:20px;
+    padding:30px
+}
+.formInput form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    gap:17px;
+    padding:17px
+}
+    .formInput input {
+        
+        border-radius:8px;
+        border:0;
+        width:90%;
+        padding:10px 30px;
+
+    }
+.submit {
+    background-color: rgb(0,169,157);
+    color:white;
+    font-weight:700
+}

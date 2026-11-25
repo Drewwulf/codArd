@@ -2,18 +2,19 @@
 @{
 }
 
-<section>
+<section class="formInput">
 
 <form asp-controller="Task" asp-action="AddTask">
-    <input name="TaskName" />
-    <input name="TaskDescription"/>
-    <input type="submit" />
+    <input name="TaskName" placeholder="назва задачі" required />
+    <input name="TaskDescription" placeholder="опис задачі" required/>
         <select name="TopicId">
             @foreach (var item in Model.topicViewModel)
             {
                 <option value="@item.Id">@item.Name</option>
             }
         </select>
+    <input type="submit" class="submit" value="Створити" />
+       
 </form>
     
 </section>
